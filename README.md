@@ -30,6 +30,8 @@ def created_date(self):
 
 
 @admin.display(description="дата обновления")
+
+
 def created_date(self):
     from django.utils import timezone
     from django.utils.html import format_html
@@ -41,3 +43,14 @@ def created_date(self):
 
         )
         return self.updated_at.strftime("%d.%m.%Y в %H:%M:%S")
+
+
+@admin.display
+class Book(models.Model):
+    title = models.CharField(max_length=150)
+    cover = models.ImageField(upload_to='adv.png')
+    book = models.FileField(upload_to='adv.png')
+
+    def __str__(self):
+        return self.title
+@admin.display
