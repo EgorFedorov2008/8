@@ -51,6 +51,30 @@ class Book(models.Model):
     cover = models.ImageField(upload_to='adv.png')
     book = models.FileField(upload_to='adv.png')
 
+    if title == "?":
+        return ValidationError(_('Invalid value'), code='invalid')
+
     def __str__(self):
         return self.title
+
 @admin.display
+
+@admin.display
+
+
+class Article(ModelsForm):
+     class Meta:    
+         model = Article       
+         fields = ['pub_date', 'headline', 'content', 'reporter']
+
+
+@admin.display
+        
+
+
+
+
+
+
+
+    
